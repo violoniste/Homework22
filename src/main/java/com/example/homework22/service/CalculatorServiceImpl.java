@@ -1,6 +1,7 @@
 package com.example.homework22.service;
 
 import com.example.homework22.exceptions.BadRequestException;
+import com.example.homework22.exceptions.BadRequestIllegalArgumentException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -27,9 +28,9 @@ public class CalculatorServiceImpl implements CalculatorService {
     }
 
     @Override
-    public String divide(float num1, float num2) {
+    public String divide(int num1, int num2) {
         if (num2 == 0f)
-            throw new BadRequestException();
+            throw new BadRequestIllegalArgumentException();
 
         return num1 + " / " + num2 + " = " + (num1 / num2);
     }
